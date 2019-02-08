@@ -1,0 +1,66 @@
+
+Yet Another Call-graph Analysis Monitor, YACA
+1.extract the downloaded zip.
+2.run bat file
+3.open browser with http://localhost:33333/
+4.turn on switch option to "ON"
+5.click "connect" button.
+6.in java-applet, select one of 3-sort-categories and start it.
+7.in java-applet, checks call-graph behavior.
+99.when exiting, 
+    in "resmon.exe", 
+	    checks listening port in network-monitor 
+		with image-name="java.exe", pid=nnnn
+	in "cmd.exe"
+    checks listening port with 
+	    D:\>netstat -ano | find ":33333"
+
+(note) currPorts.exe http://www.nirsoft.net/utils/cports.html
+(note) To not close the process, 
+       just to diconnect the specified connection using currPorts.exe of nirsoft
+       plz, read so-doc: 
+	       https://stackoverflow.com/questions/8688949/how-to-close-tcp-and-udp-ports-via-windows-command-line
+       one of answers: (JasonXA, May 11 '14 at 8:49 )
+	       Yes, CP is a wonderful tool: 
+		       CurrPorts.exe /close <Local Address> <Local Port> <Remote Address> <Remote Port> {Process Name} 
+		   This would be the line: 
+		       CurrPorts.exe /close * 56789 * * server.exe
+
+
+
+
+
+viewer can see in link http://localhost:33333/
+    or http://yaca-monitor.appspot.com/
+
+YACA-AGENT - STATIC AND DYNAMIC ANALYSIS
+
+videos by Markus Sprunck:
+
+YACA-Monitor 1.0 - Yet Another Call-graph Analysis Monitor
+    https://www.youtube.com/watch?v=j-ZIaATC_JQ
+	src: https://github.com/MarkusSprunck/yaca-monitor
+YACA-Monitor 2.0 - Live Visualization of Call Stack in Running Java Applications with THREE.js
+    https://www.youtube.com/watch?v=yUTEGepKIxY
+YACA-Monitor 4.0 - Do you Know What Happens in Your Java EE Application Server? (Published on Aug 7, 2014)
+    http://www.sw-engineering-candies.com/blog-1/what-happens-in-your-java-ee-application-server
+    https://www.youtube.com/watch?v=1VC9Cjs9xeA&gl=NG
+	src: https://github.com/MarkusSprunck/yaca-monitor-jee
+
+
+pre-requite:
+    look at docs: 
+	    http://www.sw-engineering-candies.com/blog-1/extremely-fast-and-simple-webgl-motion-detector-to-rotate-3d-graphic 
+    The algorithm is very simple, robust and extremely fast compared with classic face detection approaches.
+	The code is based on: 
+        Three.js (r76), 
+        glfx.js and 
+        JavaScript.  
+    It is tested with Chrome (v50) and Firefox (v45) UNDER OS X. 
+	and you may download the sources from GitHub. 
+
+    fork the project on GitHub or download the zipped project from GitHub. 
+	Open the project in Eclipse (Luna) and You should see something like this:
+
+    Best of Experiments with HTML5 & WebGL (1/2)    http://www.sw-engineering-candies.com/
+    Best of Experiments with HTML5 & WebGL (2/2)    http://www.sw-engineering-candies.com/page-1

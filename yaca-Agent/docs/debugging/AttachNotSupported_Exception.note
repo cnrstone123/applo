@@ -1,0 +1,66 @@
+//-- when occurs,,, 
+//-- in browser, when changing pid to localhost:7080/mountain,,,
+
+//-- yaca-Agent uses jdk_v1.8.90
+//-- /mountain webapp uses jdk_v1.7.09
+
+//-- predictions.. jdk is for 32bit..?
+
+YACA [INFO] Reset counters and clear model (Model.java:165) 
+YACA [INFO] Request change to pid=7756 allVirtualMachines=[4196] (CallStackAnalyzer.java:124) 
+YACA [ERROR] AttachNotSupportedException  (CallStackAnalyzer.java:201) 
+
+com.sun.tools.attach.AttachNotSupportedException: Unable to attach to 32-bit process running under WOW64
+	at sun.tools.attach.WindowsVirtualMachine.openProcess(Native Method)
+	at sun.tools.attach.WindowsVirtualMachine.<init>(WindowsVirtualMachine.java:56)
+	at sun.tools.attach.WindowsAttachProvider.attachVirtualMachine(WindowsAttachProvider.java:69)
+	at com.sun.tools.attach.VirtualMachine.attach(VirtualMachine.java:208)
+	at com.sw_engineering_candies.yaca.CallStackAnalyzer.start(CallStackAnalyzer.java:127)
+	at com.sw_engineering_candies.yaca.Agent.main(Agent.java:106)
+
+YACA [INFO] Reset counters and clear model (Model.java:165) 
+YACA [INFO] Request change to pid=7756 allVirtualMachines=[4196] (CallStackAnalyzer.java:124) 
+YACA [ERROR] AttachNotSupportedException  (CallStackAnalyzer.java:201) 
+com.sun.tools.attach.AttachNotSupportedException: Unable to attach to 32-bit process running under WOW64
+	at sun.tools.attach.WindowsVirtualMachine.openProcess(Native Method)
+	at sun.tools.attach.WindowsVirtualMachine.<init>(WindowsVirtualMachine.java:56)
+	at sun.tools.attach.WindowsAttachProvider.attachVirtualMachine(WindowsAttachProvider.java:69)
+	at com.sun.tools.attach.VirtualMachine.attach(VirtualMachine.java:208)
+	at com.sw_engineering_candies.yaca.CallStackAnalyzer.start(CallStackAnalyzer.java:127)
+	at com.sw_engineering_candies.yaca.Agent.main(Agent.java:106)
+YACA [INFO] Reset counters and clear model (Model.java:165) 
+YACA [INFO] Request change to pid=7756 allVirtualMachines=[4196] (CallStackAnalyzer.java:124) 
+
+
+//-- shootings..
+(1) from: https://github.com/gavioto/jvmmonitor/issues/30
+
+The followings are the typical cases that JVM Monitor shows the message 
+"Monitoring is not supported for the selected JVM" on Properties view on 
+Windows 64bit.
+
+ case 1) running Java app with Java 1.5
+
+ case 2) running Java app with JRE/JDK 32bit while using Eclipse 64bit on Windows 64bit
+
+ case 3) running Java app with JRE/JDK 64bit while using Eclipse 32bit on Windows 64bit
+
+This bug entry seems to be the case 2, and it is expected behavior to show 
+error message. On the other hand, the existing message is not that descriptive, 
+so it would make sense to show additional message contained in exception 
+com.sun.tools.attach.AttachNotSupportedException
+on Properties view and status line when selecting the JVM on JVM Explorer as 
+below.
+
+ additional message to be shown:
+
+ case 1) The VM does not support the attach mechanism
+
+ case 2) Unable to attach to 32-bit process running under WOW64
+
+ case 3) Unable to attach to 64-bit process
+ 
+ 
+Original comment by yoshitak...@gmail.com on 14 Dec 2010 at 10:17
+
+Changed state: Fixed

@@ -1,0 +1,129 @@
+
+//-- when occurs,..
+
+Exception in thread "main" java.lang.UnsatisfiedLinkError: 
+sun.tools.attach.BsdVirtualMachine.getTempDir()Ljava/lang/String;
+
+	at sun.tools.attach.BsdVirtualMachine.getTempDir(Native Method)
+	at sun.tools.attach.BsdVirtualMachine.<clinit>(BsdVirtualMachine.java:308)
+	at sun.tools.attach.BsdAttachProvider.attachVirtualMachine(BsdAttachProvider.java:78)
+	at com.sun.tools.attach.VirtualMachine.attach(VirtualMachine.java:250)
+	at com.sw_engineering_candies.yaca.CallStackAnalyzer.findOtherAttachableJavaVMs(CallStackAnalyzer.java:212)
+	at com.sw_engineering_candies.yaca.CallStackAnalyzer.start(CallStackAnalyzer.java:97)
+	at com.sw_engineering_candies.yaca.Agent.main(Agent.java:105)
+
+Exception in thread "main" java.lang.UnsatisfiedLinkError: 
+sun.tools.attach.BsdVirtualMachine.getTempDir()Ljava/lang/String;
+
+	at sun.tools.attach.BsdVirtualMachine.getTempDir(Native Method)
+	at sun.tools.attach.BsdVirtualMachine.<clinit>(BsdVirtualMachine.java:308)
+	at sun.tools.attach.BsdAttachProvider.attachVirtualMachine(BsdAttachProvider.java:78)
+	at com.sun.tools.attach.VirtualMachine.attach(VirtualMachine.java:250)
+	at com.sw_engineering_candies.yaca.CallStackAnalyzer.findOtherAttachableJavaVMs(CallStackAnalyzer.java:212)
+	at com.sw_engineering_candies.yaca.CallStackAnalyzer.start(CallStackAnalyzer.java:97)
+	at com.sw_engineering_candies.yaca.Agent.main(Agent.java:105)
+
+
+
+
+//-- internet-advice
+
+some-guy1 said:
+	I recently developped an app that need the Attach API, located in tools.jar. 
+	I achieved this on a Mac and now I want to run the app on a Linux Server. 
+	
+	There was an error : 
+	The cause is that the sun.tools.attach api is platform dependant. 
+	So if I compile my software on Mac, can't run on Windows or Linux. 
+	
+	My question is : Is there any way to say to Eclipse : 
+	    "Do not export this dep but go look at...". 
+
+another-guy2 answered:
+	dont use *sun* package: 
+
+
+
+subject: "Why Developers Should Not Write Programs That Call 'sun' Packages"
+    http://www.oracle.com/technetwork/java/faq-sun-packages-142232.html
+
+Why Developers Should Not Write Programs That Call 'sun' Packages
+
+The java.*, javax.* and org.* packages documented in the Java Platform Standard Edition API Specification 
+make up the official, supported, public interface. 
+If a Java program directly calls only API in these packages, 
+it will operate on all Java-compatible platforms, regardless of the underlying OS platform.
+The sun.* packages are not part of the supported, public interface. 
+
+A Java program that directly calls into sun.* packages is not guaranteed to work on 
+all Java-compatible platforms. In fact, such a program is not guaranteed to work even 
+in future versions on the same platform.
+
+Each company that implements the Java platform will do so in their own private way. 
+The classes in sun.* are present in the JDK to support Oracle's implementation of the Java platform: 
+the sun.* classes are what make the Java platform classes work "under the covers" for Oracle's JDK. 
+
+These classes will not in general be present on another vendor's Java platform. 
+If your Java program asks for a class "sun.package.Foo" by name, 
+it may fail with ClassNotFoundError, 
+and you will have lost a major advantage of developing in Java.
+
+Technically, nothing prevents your program from calling into sun.* by name. 
+From one release to another, these classes may be removed, 
+or they may be moved from one package to another, 
+and it's fairly likely that their interface (method names and signatures) will change. 
+(From Oracle's point of view, 
+since we are committed to maintaining the Java platform, 
+we need to be able to change sun.* to refine and enhance the platform.) 
+In this case, 
+even if you are willing to run only on Oracle's implementation, 
+you run the risk of a new version of the implementation breaking your program.
+
+In general, 
+writing java programs that rely on sun.* is risky: 
+those classes are not portable, and are not supported.
+
+Copyright © 1996, 2012, Oracle and/or its affiliates. All rights reserved.
+
+
+//-- shooting
+
+sun.tools.attach.BsdVirtualMachine is wrong. it's class of tools.jar for solaris.
+
+changed the ${PROJECT_HOME}/dist/tools.jar to ${JAVA_HOME}/lib/tools.jar for windows.
+
+in /build.xml, according to <copyTo> tag,
+manually copied ${JAVA_HOME}/lib/tools.jar
+.........to     ${PROJECT_HOME}/dist/
+
+//-- problem is resolved.
+
+//-- additionally, 
+cause tools.jar is not found java-source,
+downloaded java file from 
+    https://www.programcreek.com/java-api-examples/
+    	?code=SunburstApps/OpenJSharp/OpenJSharp-master
+    		/openjdk/jdk/src/share/classes
+    		
+    		/sun/tools/attach/*.java#
+    		/com/sun/tools/attach/*.java
+    		/com/sun/tools/attach/spi/*.java
+
+.... sun.tools.attach.WindowsAttachProvider.java, WindowsVirtualMachine.java,...
+.... com.sun.tools.attach.VitualMachine.java, VirtualMachineDescriptor.java,....
+.... com.sun.tools.attach.spi.AttachProvider.java
+
+
+//-- normal request..example.
+
+GET /monitor HTTP/1.1
+Host: localhost:8082
+Connection: keep-alive
+Cache-Control: max-age=0
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en,en-US;q=0.8,zh-CN;q=0.6,ko-KR;q=0.4,zh;q=0.2,ko;q=0.2
+
+

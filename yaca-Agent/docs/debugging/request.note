@@ -1,0 +1,168 @@
+
+(in chrome-browser, on requesting of localhost:8082/monitor)
+
+//-- request message is
+
+GET /monitor HTTP/1.1
+Host: localhost:8082
+Connection: keep-alive
+Cache-Control: max-age=0
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en,en-US;q=0.8,zh-CN;q=0.6,ko-KR;q=0.4,zh;q=0.2,ko;q=0.2
+
+
+//-- parsed data in RequestData(InputStream)
+
+firstline = "GET /monitor HTTP/1.1"
+body      = ""
+
+sendResponseFor_StaticFile(out, request.getFirstLine(), "index.html", "text/html");
+
+//-- request-orders is below..
+
+YACA [INFO] Yaca-Agent - (c) 2012-2016 by Markus Sprunck, v4.0.1 (Agent.java:96) 
+YACA [INFO] Start server at http://windy-PC:8082/monitor  (Agent.java:86) 
+YACA [INFO] Request change to pid=1652 allVirtualMachines=[1652] (CallStackAnalyzer.java:108) 
+YACA [INFO] Reset counters and clear model (Model.java:155) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+YACA [WARN] Not expected request=GET / HTTP/1.1 (WebServer.java:159) 
+
+YACA [INFO] Return 51081 bytes   as resonse for request=GET /monitor HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 1447 bytes    as resonse for request=GET /monitor/styles/main.css HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 1390935 bytes as resonse for request=GET /monitor/external/traceur.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 100811 bytes  as resonse for request=GET /monitor/external/dat.gui.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 939702 bytes  as resonse for request=GET /monitor/external/three.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 2056 bytes    as resonse for request=GET /monitor/external/detector.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 2056 bytes    as resonse for request=GET /monitor/external/detector.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 6142 bytes    as resonse for request=GET /monitor/external/geometryutils.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 13021 bytes   as resonse for request=GET /monitor/external/trackballcontrols.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 21282 bytes   as resonse for request=GET /monitor/external/projector.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 1663 bytes    as resonse for request=GET /monitor/external/stats.min.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 656 bytes     as resonse for request=GET /monitor/external/bootstrap.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] Return 63249 bytes   as resonse for request=GET /monitor/external/helvetiker_regular.typeface.js HTTP/1.1 (WebServer.java:251) 
+YACA [INFO] VirtualMachines=[] (WebServer.java:213) 
+YACA [INFO] Process ID=1652 process IDs=[] (Model.java:232) 
+YACA [INFO] VirtualMachines=[1652] (WebServer.java:213) 
+YACA [INFO] Process ID=1652 process IDs=[] (Model.java:232) 
+YACA [INFO] Return 63249 bytes   as resonse for request=GET /monitor/external/helvetiker_regular.typeface.js HTTP/1.1 (WebServer.java:251) 
+
+YACA [INFO] Process ID=1652 clusters=147 nodes=407 links=606 maximumNodeCount=145026 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=468 links=696 maximumNodeCount=95 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=468 links=696 maximumNodeCount=1 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=469 links=700 maximumNodeCount=95 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=469 links=700 maximumNodeCount=95 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=469 links=700 maximumNodeCount=1 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=469 links=700 maximumNodeCount=95 connected=true (Model.java:202) 
+YACA [INFO] Process ID=1652 clusters=168 nodes=469 links=700 maximumNodeCount=1 connected=true (Model.java:202) 
+
+
+GET /process/ids HTTP/1.1
+Host: localhost:8082
+Connection: keep-alive
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36
+Content-type: text/plain
+Accept: */*
+Referer: http://localhost:8082/monitor
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en,en-US;q=0.8,zh-CN;q=0.6,ko-KR;q=0.4,zh;q=0.2,ko;q=0.2
+
+
+
+{
+org.eclipse.swt.internal.win32.OS.TrackPopupMenu=	{
+"id":5201, "clusterId":63, "name":"org.eclipse.swt.internal.win32.OS.TrackPopupMenu" , "alias":"OS.TrackPopupMenu", "calls": %d , "isClusterNode" : false  }
+		, com.zeroturnaround.jdi.JRMirror=	{
+"id":2578, "clusterId":793, "name":"com.zeroturnaround.jdi.JRMirror" , "alias":"com.zeroturnaround.jdi", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.ui.internal.SaveableHelper.doSaveModel=	{
+"id":4774, "clusterId":1329, "name":"org.eclipse.ui.internal.SaveableHelper.doSaveModel" , "alias":"SaveableHelper.doSaveModel", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.debug.internal.core.OutputStreamMonitor.access$1=	{
+"id":58, "clusterId":22, "name":"org.eclipse.debug.internal.core.OutputStreamMonitor.access$1" , "alias":"OutputStreamMonitor.access$1", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.ui.texteditor.TextNavigationAction.doFireSelectionChanged=	{
+"id":4628, "clusterId":1289, "name":"org.eclipse.ui.texteditor.TextNavigationAction.doFireSelectionChanged" , "alias":"TextNavigationAction.doFireSelectionChanged", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.core.runtime.FileLocator.find=	{
+"id":5832, "clusterId":1470, "name":"org.eclipse.core.runtime.FileLocator.find" , "alias":"FileLocator.find", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.wst.sse.ui.internal.reconcile.DirtyRegionProcessor$BackgroundThread.run=	{
+"id":67, "clusterId":26, "name":"org.eclipse.wst.sse.ui.internal.reconcile.DirtyRegionProcessor$BackgroundThread.run" , "alias":"DirtyRegionProcessor$BackgroundThread.run", "calls": %d , "isClusterNode" : false  }
+		, com.zeroturnaround.jdi.request.JREventRequest.<init>=	{
+"id":2244, "clusterId":705, "name":"com.zeroturnaround.jdi.request.JREventRequest.<init>" , "alias":"JREventRequest.<init>", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.debug.core.model.DebugElement.getAdapter=	{
+"id":2548, "clusterId":787, "name":"org.eclipse.debug.core.model.DebugElement.getAdapter" , "alias":"DebugElement.getAdapter", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jface.text.TextViewer.internalRevealRange=	{
+"id":2290, "clusterId":226, "name":"org.eclipse.jface.text.TextViewer.internalRevealRange" , "alias":"TextViewer.internalRevealRange", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.ui.texteditor.BookmarkRulerAction.createAction=	{
+"id":6513, "clusterId":1798, "name":"org.eclipse.ui.texteditor.BookmarkRulerAction.createAction" , "alias":"BookmarkRulerAction.createAction", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart.refresh=	{
+"id":5249, "clusterId":1393, "name":"org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart.refresh" , "alias":"PackageExplorerPart.refresh", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.e4.ui.internal.workbench.PartServiceImpl.getParts=	{
+"id":6460, "clusterId":105, "name":"org.eclipse.e4.ui.internal.workbench.PartServiceImpl.getParts" , "alias":"PartServiceImpl.getParts", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.debug.internal.ui.views.variables.details.DefaultDetailPane$3.focusGained=	{
+"id":6500, "clusterId":772, "name":"org.eclipse.debug.internal.ui.views.variables.details.DefaultDetailPane$3.focusGained" , "alias":"DefaultDetailPane$3.focusGained", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jdt.internal.launching.JREContainer=	{
+"id":5318, "clusterId":1491, "name":"org.eclipse.jdt.internal.launching.JREContainer" , "alias":"org.eclipse.jdt.internal.launching", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.jdt.internal.corext.refactoring.RefactoringExecutionStarter.startRenameRefactoring=	{
+"id":4678, "clusterId":1301, "name":"org.eclipse.jdt.internal.corext.refactoring.RefactoringExecutionStarter.startRenameRefactoring" , "alias":"RefactoringExecutionStarter.startRenameRefactoring", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jface.text.rules.WhitespaceRule.evaluate=	{
+"id":920, "clusterId":312, "name":"org.eclipse.jface.text.rules.WhitespaceRule.evaluate" , "alias":"WhitespaceRule.evaluate", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.swt.widgets.ToolBar.WM_LBUTTONDOWN=	{
+"id":4073, "clusterId":127, "name":"org.eclipse.swt.widgets.ToolBar.WM_LBUTTONDOWN" , "alias":"ToolBar.WM_LBUTTONDOWN", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jface.viewers.StructuredViewer.handleLabelProviderChanged=	{
+"id":1636, "clusterId":151, "name":"org.eclipse.jface.viewers.StructuredViewer.handleLabelProviderChanged" , "alias":"StructuredViewer.handleLabelProviderChanged", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.ui.texteditor.AbstractTextEditor$11.run=	{
+"id":3771, "clusterId":1101, "name":"org.eclipse.ui.texteditor.AbstractTextEditor$11.run" , "alias":"AbstractTextEditor$11.run", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jdt.internal.ui.packageview.PackageExplorerActionGroup=	{
+"id":3092, "clusterId":922, "name":"org.eclipse.jdt.internal.ui.packageview.PackageExplorerActionGroup" , "alias":"org.eclipse.jdt.internal.ui.packageview", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.hasChildren=	{
+"id":456, "clusterId":170, "name":"org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.hasChildren" , "alias":"VariableContentProvider.hasChildren", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.swt.internal.win32.OS.GetWindowTextLength=	{
+"id":5687, "clusterId":63, "name":"org.eclipse.swt.internal.win32.OS.GetWindowTextLength" , "alias":"OS.GetWindowTextLength", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.core.internal.events.ResourceDelta=	{
+"id":6033, "clusterId":1690, "name":"org.eclipse.core.internal.events.ResourceDelta" , "alias":"org.eclipse.core.internal.events", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.swt.internal.win32.OS.ScriptPlace=	{
+"id":1553, "clusterId":63, "name":"org.eclipse.swt.internal.win32.OS.ScriptPlace" , "alias":"OS.ScriptPlace", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.swt.widgets.Control.translateTraversal=	{
+"id":4591, "clusterId":130, "name":"org.eclipse.swt.widgets.Control.translateTraversal" , "alias":"Control.translateTraversal", "calls": %d , "isClusterNode" : false  }
+		, java.util.LinkedHashMap=	{
+"id":6478, "clusterId":1788, "name":"java.util.LinkedHashMap" , "alias":"java.util", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.swt.widgets.Composite.WM_LBUTTONDOWN=	{
+"id":1872, "clusterId":129, "name":"org.eclipse.swt.widgets.Composite.WM_LBUTTONDOWN" , "alias":"Composite.WM_LBUTTONDOWN", "calls": %d , "isClusterNode" : false  }
+		, java.util.TreeSet.iterator=	{
+"id":2520, "clusterId":777, "name":"java.util.TreeSet.iterator" , "alias":"TreeSet.iterator", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.swt.internal.win32.OS.PeekMessageW=	{
+"id":194, "clusterId":63, "name":"org.eclipse.swt.internal.win32.OS.PeekMessageW" , "alias":"OS.PeekMessageW", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jface.viewers.StructuredViewer$6.handleOpen=	{
+"id":3103, "clusterId":926, "name":"org.eclipse.jface.viewers.StructuredViewer$6.handleOpen" , "alias":"StructuredViewer$6.handleOpen", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.swt.ole.win32.OleControlSite=	{
+"id":3317, "clusterId":997, "name":"org.eclipse.swt.ole.win32.OleControlSite" , "alias":"org.eclipse.swt.ole.win32", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.debug.internal.ui.InstructionPointerManager.removeAnnotations=	{
+"id":2188, "clusterId":687, "name":"org.eclipse.debug.internal.ui.InstructionPointerManager.removeAnnotations" , "alias":"InstructionPointerManager.removeAnnotations", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.core.internal.jobs.JobManager.sleepHint=	{
+"id":6536, "clusterId":434, "name":"org.eclipse.core.internal.jobs.JobManager.sleepHint" , "alias":"JobManager.sleepHint", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitDocumentProvider$CompilationUnitAnnotationModel=	{
+"id":2184, "clusterId":686, "name":"org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitDocumentProvider$CompilationUnitAnnotationModel" , "alias":"org.eclipse.jdt.internal.ui.javaeditor", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.jface.action.ActionContributionItem.update=	{
+"id":2371, "clusterId":738, "name":"org.eclipse.jface.action.ActionContributionItem.update" , "alias":"ActionContributionItem.update", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jface.text.source.projection.ProjectionSummary.access$3=	{
+"id":3003, "clusterId":682, "name":"org.eclipse.jface.text.source.projection.ProjectionSummary.access$3" , "alias":"ProjectionSummary.access$3", "calls": %d , "isClusterNode" : false  }
+		, sun.reflect.UnsafeByteFieldAccessorImpl.set=	{
+"id":3432, "clusterId":1023, "name":"sun.reflect.UnsafeByteFieldAccessorImpl.set" , "alias":"UnsafeByteFieldAccessorImpl.set", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.jface.resource.ImageDescriptor=	{
+"id":1719, "clusterId":558, "name":"org.eclipse.jface.resource.ImageDescriptor" , "alias":"org.eclipse.jface.resource", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.swt.widgets.Tree.WM_VSCROLL=	{
+"id":4671, "clusterId":147, "name":"org.eclipse.swt.widgets.Tree.WM_VSCROLL" , "alias":"Tree.WM_VSCROLL", "calls": %d , "isClusterNode" : false  }
+		, org.jboss.tools.jmx.ui.internal.views.navigator.ActionProvider=	{
+"id":5978, "clusterId":1670, "name":"org.jboss.tools.jmx.ui.internal.views.navigator.ActionProvider" , "alias":"org.jboss.tools.jmx.ui.internal.views.navigator", "calls": %d , "isClusterNode" : true }
+		, org.eclipse.jdt.internal.compiler.parser.SourceTypeConverter.buildCompilationUnit=	{
+"id":6553, "clusterId":1808, "name":"org.eclipse.jdt.internal.compiler.parser.SourceTypeConverter.buildCompilationUnit" , "alias":"SourceTypeConverter.buildCompilationUnit", "calls": %d , "isClusterNode" : false  }
+		, org.eclipse.swt.internal.ImageList.getImageS...
+
