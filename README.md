@@ -1,2 +1,2 @@
 # applo
-for android-app of prj
+other snippets
